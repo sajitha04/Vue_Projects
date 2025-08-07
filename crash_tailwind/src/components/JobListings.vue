@@ -1,15 +1,11 @@
 <script setup>
-import { ref ,defineProps ,onMounted, reactive } from "vue";
+import {defineProps ,onMounted, reactive } from "vue";
 import JobListing from "./JobListing.vue";
 import { RouterLink } from "vue-router";
 import axios from "axios";
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 // const jobs = ref([]);
-const state = reactive({
-  jobs: [],
-  isLoading : true
-})
 defineProps({
   limit: Number,
   showButton : {
@@ -17,9 +13,14 @@ defineProps({
     default: false,
   }
 })
+const state = reactive({
+  jobs: [],
+  isLoading : true
+})
+
 onMounted(async ()=>{
   try{
-    const response = await axios.get("http://localhost:5000/jobs")
+    const response = await axios.get("/api/jobs")
     state.jobs = response.data;
   }
   catch (error){
