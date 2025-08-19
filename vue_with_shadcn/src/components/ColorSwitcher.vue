@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Paintbrush } from "lucide-vue-next";
+import { Palette } from "lucide-vue-next";
 // Get the theme state and list of themes from our composable
 const { theme, themes } = useColorTheme();
 // Helper to capitalize strings for display
@@ -27,7 +27,7 @@ const colorMap = {
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
       <Button variant="outline" size="icon">
-        <Paintbrush class="h-[1.2rem] w-[1.2rem]" />
+        <Palette class="h-[1.2rem] w-[1.2rem]" />
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
